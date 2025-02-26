@@ -8,7 +8,7 @@ npm install
 
 #### 2. Create file backend/.env with the following contents
 ```
-MONGO_URI=mongodb+srv://your-username:your-password@cluster.mongodb.net/your-db
+MONGO_URI=mongodb+srv://username:password@i4.wlg0s.mongodb.net/?retryWrites=true&w=majority&appName=i4
 PORT=5000
 ```
 
@@ -21,18 +21,18 @@ npm run dev
 
 ## Frontend
 
-### 1. Install frontend dependencies
+#### 1. Install frontend dependencies
 ```bash
 cd frontend
 npm install
 ```
 
-### 2. Run the frontend
+#### 2. Run the frontend
 ```bash
 npm run dev
 ```
 
-### 3. On browser, go to http://localhost:5000/
+#### 3. On browser, go to http://localhost:5173/
 
 ## Database
 

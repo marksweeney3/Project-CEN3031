@@ -1,15 +1,18 @@
 ## Backend
 
-#### 1. Install backend dependencies
+#### 1. Install dependencies in 'backend' folder
 ```bash
 cd backend
 npm install
 ```
 
-#### 2. Create file backend/.env with the following contents
+#### 2. Create file .env in 'backend' folder with the following contents
 ```
-MONGO_URI=mongodb+srv://username:password@i4.wlg0s.mongodb.net/?retryWrites=true&w=majority&appName=i4
 PORT=5000
+DB_HOST=gss.cjsm2euui8ne.us-east-2.rds.amazonaws.com
+DB_USER=admin
+DB_PASSWORD=cen3031_gss_group08
+DB_NAME=gss
 ```
 
 #### 3. Run the backend
@@ -21,7 +24,7 @@ npm run dev
 
 ## Frontend
 
-#### 1. Install frontend dependencies
+#### 1. Install dependencies in 'frontend' folder
 ```bash
 cd frontend
 npm install
@@ -36,4 +39,4 @@ npm run dev
 
 ## Database
 
-#### todo
+#### 1. Check that .env file is located in backend with proper credentials

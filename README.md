@@ -2,7 +2,7 @@
 ### Mark Sweeney, Shelton Joseph, Jackson Culbreth
 
 ## Web stack: MERN
-- Database: MongoDB
+- Database: SQL
 - Frontend + Backend: Express + React
 - Networking: Node.js
 

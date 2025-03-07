@@ -2,7 +2,7 @@
 ### Mark Sweeney, Shelton Joseph, Jackson Culbreth
 
 ## Web stack: MERN
-- Database: SQL
+- Database: MySQL
 - Frontend + Backend: Express + React
 - Networking: Node.js
 
@@ -15,7 +15,7 @@ A gap experienced by many students at UF is networking with students in their fi
 
 ### Specifications
 - **Authentication**: User authentication will be developed utilizing password hashing for frontend ⇔ backend communication
-- **Database**: Utilizing MongoDB we can store the adequate data in a hierarchical format with many local and cloud hosting options
+- **Database**: Utilizing MySQL we can store the adequate data in a hierarchical format with many local and cloud hosting options
 - **Operations**: Users will be able to browse subject categories, current UF classes, study spaces, and fellow users. Users will be able to add other uses as friends, create a study session, and query available study sessions.
 ### Expectations
 - **Data**: We will include real data, either scraped or API-obtained, of UF’s classes so users can add their current classes to their profile

@@ -5,7 +5,7 @@ require("dotenv").config();
 const db = require("./db"); // Import shared connection
 
 const app = express();
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 5001;
 
 app.use(cors());
 app.use(express.json());
@@ -30,6 +30,7 @@ app.post("/register", async (req, res) => {
 
         db.query(sql, [name, email, hashedPassword], (err, result) => {
             if (err) {
+                console.error("DB Error:", err); // ← Add this
                 if (err.code === "ER_DUP_ENTRY") {
                     return res.status(409).json({ error: "Email already exists." });
                 }

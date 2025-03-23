@@ -30,15 +30,21 @@ function RegisterForm() {
         }
 
         try {
-            const res = await axios.post("http://localhost:5000/register", {
+            const res = await axios.post("http://localhost:5001/register", {
                 name: form.name,
                 email: form.email,
                 password: form.password
             });
 
             setMessage(res.data.message);
-        } catch (err: any) {
-            setMessage(err.response?.data?.error || "Something went wrong");
+        } catch (err: unknown) {
+            if (axios.isAxiosError(err)) {
+                const error = err.response?.data?.error || "Something went wrong";
+                const detail = err.response?.data?.details;
+                setMessage(`${error}${detail ? ": " + detail : ""}`);
+            } else {
+                setMessage("An unexpected error occurred");
+            }
         }
     };
 

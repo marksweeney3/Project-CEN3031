@@ -17,6 +17,7 @@ app.get("/", (req, res) => {
 
 // Registration route
 app.post("/register", async (req, res) => {
+    console.log("Received data:", req.body);
     const { name, email, password } = req.body;
 
     if (!name || !email || !password) {
@@ -30,15 +31,16 @@ app.post("/register", async (req, res) => {
 
         db.query(sql, [name, email, hashedPassword], (err, result) => {
             if (err) {
-                console.error("DB Error:", err); // ← Add this
+                console.error("DB Error:", err.code, err.sqlMessage);
                 if (err.code === "ER_DUP_ENTRY") {
                     return res.status(409).json({ error: "Email already exists." });
                 }
-                return res.status(500).json({ error: "Database error", details: err });
+                return res.status(500).json({ error: "Database error", details: err.sqlMessage });
             }
 
             res.status(201).json({ message: "User registered!" });
         });
+
     } catch (err) {
         res.status(500).json({ error: "Error hashing password", details: err });
     }

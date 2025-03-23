@@ -6,7 +6,7 @@ function RegisterForm() {
         name: "",
         email: "",
         password: "",
-        confirmPassword: ""
+        confirmPassword: "",
     });
 
     const [message, setMessage] = useState("");
@@ -18,7 +18,6 @@ function RegisterForm() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
-        // Basic front-end validation
         if (!form.email.endsWith("@ufl.edu")) {
             setMessage("Email must end with @ufl.edu");
             return;
@@ -33,7 +32,7 @@ function RegisterForm() {
             const res = await axios.post("http://localhost:5001/register", {
                 name: form.name,
                 email: form.email,
-                password: form.password
+                password: form.password,
             });
 
             setMessage(res.data.message);
@@ -49,9 +48,17 @@ function RegisterForm() {
     };
 
     return (
-        <div className="min-h-screen bg-blue-50 flex items-center justify-center">
-            <form onSubmit={handleSubmit} className="bg-white p-8 rounded shadow-md w-full max-w-md">
-                <h2 className="text-2xl font-bold mb-6 text-center">Sign Up</h2>
+        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-300 px-4">
+            <form
+                onSubmit={handleSubmit}
+                className="flex flex-col bg-white p-10 rounded-2xl shadow-xl w-full max-w-md"
+            >
+                <h2 className="text-3xl font-bold text-blue-700 text-center mb-2">
+                    Welcome to GatorStudyCentral!
+                </h2>
+                <p className="text-center text-red-500 mb-6">
+                    User Registration
+                </p>
 
                 <input
                     name="name"
@@ -60,7 +67,7 @@ function RegisterForm() {
                     onChange={handleChange}
                     value={form.name}
                     required
-                    className="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+                    className="mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
 
                 <input
@@ -70,7 +77,7 @@ function RegisterForm() {
                     onChange={handleChange}
                     value={form.email}
                     required
-                    className="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+                    className="mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
 
                 <input
@@ -80,7 +87,7 @@ function RegisterForm() {
                     onChange={handleChange}
                     value={form.password}
                     required
-                    className="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+                    className="mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
 
                 <input
@@ -90,17 +97,19 @@ function RegisterForm() {
                     onChange={handleChange}
                     value={form.confirmPassword}
                     required
-                    className="w-full border border-gray-300 rounded px-3 py-2 mb-4"
+                    className="mb-6 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
                 />
 
                 <button
                     type="submit"
-                    className="bg-blue-600 text-white w-full py-2 rounded hover:bg-blue-700"
+                    className="bg-blue-600 hover:bg-blue-700 transition duration-300 text-white font-semibold py-2 rounded-lg shadow-md"
                 >
                     Register
                 </button>
 
-                {message && <p className="text-center text-red-600 mt-4">{message}</p>}
+                {message && (
+                    <p className="text-center text-red-600 mt-4 font-medium">{message}</p>
+                )}
             </form>
         </div>
     );

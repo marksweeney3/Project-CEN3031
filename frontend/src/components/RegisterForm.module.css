@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom right, #bfdbfe, #93c5fd); /* blue-100 to blue-300 */
+    background: linear-gradient(to bottom right, #bfdbfe, #93c5fd); /* Very light blue to light blue */
     padding: 1rem;
 }
 
@@ -21,20 +21,20 @@
 .title {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e3a8a; /* blue-700 */
+    color: #1e3a8a; /* Dark blue */
     text-align: center;
     margin-bottom: 0.5rem;
 }
 
 .subtitle {
-    color: #1e3a8a; /* blue-700 to match the title */
+    color: #1e3a8a; /* Dark blue */
     text-align: center;
     margin-bottom: 1.5rem;
 }
 
 .input {
     padding: 0.5rem 1rem;
-    border: 1px solid #d1d5db; /* gray-300 */
+    border: 1px solid #d1d5db; /* Light gray */
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     font-size: 1rem;
@@ -42,12 +42,12 @@
 
 .input:focus {
     outline: none;
-    border-color: #3b82f6; /* blue-500 */
-    box-shadow: 0 0 0 2px #93c5fd; /* blue-300 */
+    border-color: #3b82f6; /* Normal blue */
+    box-shadow: 0 0 0 2px #93c5fd; /* Light blue */
 }
 
 .button {
-    background-color: #2563eb; /* blue-600 */
+    background-color: #2563eb; /* Dark blue */
     color: white;
     padding: 0.5rem 0;
     font-weight: 600;
@@ -59,11 +59,11 @@
 }
 
 .button:hover {
-    background-color: #1d4ed8; /* blue-700 */
+    background-color: #1d4ed8; /* Dark blue */
 }
 
 .message {
-    color: #dc2626; /* red-600 */
+    color: #dc2626; /* Red */
     text-align: center;
     margin-top: 1rem;
     font-weight: 500;

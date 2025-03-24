@@ -1,18 +1,13 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-/* Optional: Global style resets or overrides */
 body {
   margin: 0;
   min-height: 100vh;
   min-width: 320px;
-  background-color: #f9fafb; /* Soft background for contrast */
+  background-color: #f9fafb; /* Background for contrast */
   font-family: system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
-  color: #1f2937; /* Gray-800 */
+  color: #1f2937; /* Gray */
 }
 
-/* Optional: Add smooth font rendering */
+/* Smooth font rendering */
 html {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;

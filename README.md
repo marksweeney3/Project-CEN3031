@@ -1,9 +1,10 @@
-# CEN3031 Web App Project
+# CEN3031 Web App Project - GatorStudyCentral
 ### Mark Sweeney, Shelton Joseph, Jackson Culbreth
 
 ## Web stack: MERN
 - Database: MySQL
-- Frontend + Backend: Express + React
+- Backend: Express.js
+- Frontend: React (with Vite + TypeScript) & CSS Modules
 - Networking: Node.js
 
 ## Solution Description

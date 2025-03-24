@@ -1,0 +1,43 @@
+.Container{
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    margin-top: 200px;
+    height: 100vh;
+    background-color: #0e23df;
+}
+
+.header{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    width: 100%;
+    margin-top: 30px;
+    margin-bottom: 20px;
+}
+
+.text{
+    font-size: 48px;
+    font-weight: 700;
+}
+
+.inputs{
+    flex-direction: column;
+    margin-top: 55px;
+    gap: 25px;
+}
+
+.input{
+    align-items: center;
+    margin: auto;
+    width: 480px;
+    height: 80px;
+    gap: 5px;
+}
+
+.SubmitContainer{
+    display: flex;
+    flex-direction: column;
+    margin-top: 50px;
+    gap: 20px;
+}

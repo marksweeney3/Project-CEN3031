@@ -1,5 +1,6 @@
 import { useState } from "react";
 import axios from "axios";
+import styles from "./RegisterForm.module.css";
 
 function RegisterForm() {
     const [form, setForm] = useState({
@@ -48,26 +49,19 @@ function RegisterForm() {
     };
 
     return (
-        <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-blue-100 to-blue-300 px-4">
-            <form
-                onSubmit={handleSubmit}
-                className="flex flex-col bg-white p-10 rounded-2xl shadow-xl w-full max-w-md"
-            >
-                <h2 className="text-3xl font-bold text-blue-700 text-center mb-2">
-                    Welcome to GatorStudyCentral!
-                </h2>
-                <p className="text-center text-red-500 mb-6">
-                    User Registration
-                </p>
+        <div className={styles.container}>
+            <form onSubmit={handleSubmit} className={styles.form}>
+                <h2 className={styles.title}>Welcome to GatorStudyCentral!</h2>
+                <p className={styles.subtitle}>User Registration</p>
 
                 <input
                     name="name"
                     type="text"
-                    placeholder="First and Last Name"
+                    placeholder="Name (first and last)"
                     onChange={handleChange}
                     value={form.name}
                     required
-                    className="mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className={styles.input}
                 />
 
                 <input
@@ -77,7 +71,7 @@ function RegisterForm() {
                     onChange={handleChange}
                     value={form.email}
                     required
-                    className="mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className={styles.input}
                 />
 
                 <input
@@ -87,7 +81,7 @@ function RegisterForm() {
                     onChange={handleChange}
                     value={form.password}
                     required
-                    className="mb-4 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className={styles.input}
                 />
 
                 <input
@@ -97,19 +91,14 @@ function RegisterForm() {
                     onChange={handleChange}
                     value={form.confirmPassword}
                     required
-                    className="mb-6 px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400"
+                    className={styles.input}
                 />
 
-                <button
-                    type="submit"
-                    className="bg-blue-600 hover:bg-blue-700 transition duration-300 text-white font-semibold py-2 rounded-lg shadow-md"
-                >
+                <button type="submit" className={styles.button}>
                     Register
                 </button>
 
-                {message && (
-                    <p className="text-center text-red-600 mt-4 font-medium">{message}</p>
-                )}
+                {message && <p className={styles.message}>{message}</p>}
             </form>
         </div>
     );

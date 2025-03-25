@@ -35,9 +35,15 @@
     gap: 5px;
 }
 
-.SubmitContainer{
+.button{
     display: flex;
-    flex-direction: column;
-    margin-top: 50px;
-    gap: 20px;
+    justify-content: center;
+    align-items: center;
+}
+
+.register{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
 }

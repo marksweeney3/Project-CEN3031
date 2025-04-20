@@ -18,8 +18,9 @@ function Login() {
                 password,
             });
 
-            localStorage.setItem("userName", res.data.name);
             setMessage(res.data.message);
+            localStorage.setItem("userId", res.data.userId.toString());
+            localStorage.setItem("userName", res.data.name);
             navigate("/home");
         } catch (err: unknown) {
             if (axios.isAxiosError(err)) {

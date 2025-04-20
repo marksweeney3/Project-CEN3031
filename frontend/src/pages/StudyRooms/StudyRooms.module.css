@@ -1,0 +1,37 @@
+.container {
+    min-height: 100vh;
+    background: linear-gradient(to bottom right, #bfdbfe, #93c5fd);
+    padding: 2rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.title {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #1e3a8a;
+    margin-bottom: 2rem;
+    text-align: center;
+}
+
+.libraryList {
+    width: 100%;
+    max-width: 1000px;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.libraryCard {
+    background-color: white;
+    border-radius: 1rem;
+    padding: 1.5rem 2rem;
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.1);
+}
+
+.libraryName {
+    color: #1e3a8a;
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+}

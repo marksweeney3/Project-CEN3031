@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import axios from "axios";
 import styles from "./RegisterForm.module.css";
 
@@ -97,6 +98,13 @@ function RegisterForm() {
                 <button type="submit" className={styles.button}>
                     Register
                 </button>
+
+                <div className={styles.loginPrompt}>
+                    <p>Already have an account?</p>
+                    <Link to="/login" className={styles.loginButton}>
+                        Login
+                    </Link>
+                </div>
 
                 {message && <p className={styles.message}>{message}</p>}
             </form>

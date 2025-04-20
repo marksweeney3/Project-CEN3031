@@ -18,6 +18,7 @@ function Login() {
                 password,
             });
 
+            localStorage.setItem("userName", res.data.name);
             setMessage(res.data.message);
             navigate("/home");
         } catch (err: unknown) {

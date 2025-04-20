@@ -36,6 +36,7 @@ function RegisterForm() {
                 password: form.password,
             });
 
+            localStorage.setItem("userName", form.name);
             setMessage(res.data.message);
         } catch (err: unknown) {
             if (axios.isAxiosError(err)) {

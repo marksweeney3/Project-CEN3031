@@ -3,7 +3,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom right, #bfdbfe, #93c5fd); /* Very light blue to light blue */
+    background: linear-gradient(to bottom right, #bfdbfe, #93c5fd);
     padding: 1rem;
 }
 
@@ -21,15 +21,17 @@
 .title {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e3a8a; /* Dark blue */
+    color: #1e3a8a;
     text-align: center;
     margin-bottom: 0.5rem;
 }
 
 .subtitle {
-    color: #1e3a8a; /* Dark blue */
+    color: #1e3a8a;
     text-align: center;
     margin-bottom: 1.5rem;
+    font-size: 1rem;
+    font-weight: 500;
 }
 
 .input {

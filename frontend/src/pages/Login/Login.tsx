@@ -36,6 +36,7 @@ function Login() {
         <div className={styles.container}>
             <form onSubmit={handleSubmit} className={styles.form}>
                 <h2 className={styles.title}>Welcome back to GatorStudyCentral!</h2>
+                <p className={styles.subtitle}>User Login</p>
 
                 <input
                     name="email"

@@ -7,7 +7,7 @@ const libraries = [
         hours: "Monday–Thursday: 8 AM – 1 AM | Friday: 8 AM – 10 PM | Saturday: 9 AM – 8 PM | Sunday: 10 AM – 1 AM",
         size: "Large",
         studyRooms: "There are 18 study rooms between floors 2, 3, 6 (Graduate Student Floor) that range in capacity from 2-6 people.",
-        notes: "The 4th floor is designated as a quiet study area. Graduate students have access to the 6th floor, which offers additional study spaces.",
+        notes: "The 4th floor is designated a quiet area. Graduate students are able to access the 6th floor, which has additional study spaces.",
     },
     {
         name: "Marston Science Library",
@@ -15,7 +15,7 @@ const libraries = [
         hours: "Open 24 hours from Sunday 10 AM – Friday 10 PM | Saturday: 9 AM – 8 PM",
         size: "Large",
         studyRooms: "There are 21 study rooms between floors 1 and 2 that range in capacity from 2-10 people.",
-        notes: "The first floor features the Collaboration Commons with PC desktops, A/V-equipped study rooms, and a conference/visualization space.",
+        notes: "The first floor has many PC desktops, study rooms, and a conference space.",
     },
     {
         name: "Smathers Library (Library East)",
@@ -23,7 +23,7 @@ const libraries = [
         hours: "Monday–Friday: 8 AM – 7 PM | Saturday: Closed | Sunday: 2 PM – 10 PM",
         size: "Medium",
         studyRooms: "There are no study rooms.",
-        notes: "Features the Grand Reading Room, the Latin American and Caribbean Collection, and the Map & Imagery Library, providing quiet study spaces.",
+        notes: "This provides quiet study spaces featuring the Grand Reading Room and the Map & Imagery Library.",
     },
     {
         name: "Education Library",
@@ -31,7 +31,7 @@ const libraries = [
         hours: "Monday–Thursday: 8 AM – 10 PM | Friday: 8 AM – 5 PM | Saturday: 1 PM – 5 PM | Sunday: 2 PM – 10 PM",
         size: "Medium",
         studyRooms: "There are 7 study rooms between floors 1 and 2 that range in capacity from 2-6 people.",
-        notes: "The library offers a homey study environment with a variety of technology available for student use.",
+        notes: "This library’s study environment is homey and has a variety of technology that students can use.",
     },
     {
         name: "Health Science Center Library",
@@ -39,7 +39,7 @@ const libraries = [
         hours: "Monday–Thursday: 7:30 AM – 11:30 PM | Friday: 7:30 AM – 7 PM | Saturday: 8 AM – 5 PM | Sunday: 1 PM – 11:30 PM",
         size: "Large",
         studyRooms: "There are 13 group study rooms and 18 individual study rooms between floors 2 and 3 that range in capacity from 1-6 students.",
-        notes: "The second floor offers 24/7 access to registered HSCL users, providing a quiet study space.",
+        notes: "The second floor offers a 24/7 quiet study space for HSCL users.",
     },
     {
         name: "Architecture and Fine Arts Library",
@@ -47,7 +47,7 @@ const libraries = [
         hours: "Monday-Friday: 8 AM – 6 PM",
         size: "Small",
         studyRooms: "There are no study rooms.",
-        notes: "The AFA Library is a quiet environment where sound carries easily. Group study requiring extended discussion is discouraged.",
+        notes: "This is a quiet environment that discourages group study discussions.",
     },
     {
         name: "Legal Information Center",
@@ -55,7 +55,7 @@ const libraries = [
         hours: "Monday-Friday: 8 AM - 5 PM",
         size: "Large",
         studyRooms: "There are 11 study rooms on floor 2 that range in capacity from 1-4 people.",
-        notes: "Study rooms are equipped with AirPlay for sharing content and can be reserved using the room reservation system.",
+        notes: "Study rooms can be reserved with the room reservation system and are equipped with AirPlay on monitors.",
     },
     {
         name: "Judaica Library",
@@ -63,7 +63,7 @@ const libraries = [
         hours: "Reading room on Friday from 9 AM – 12 PM and 1 PM – 5 PM during school semesters.",
         size: "Small",
         studyRooms: "There are no study rooms.",
-        notes: "The Judaica Suite is available for classes, events, and tours by appointment.",
+        notes: "You can book an appointment for the Judaica Suite for classes, events, and tours.",
     },
     {
         name: "Latin American and Caribbean Collection",
@@ -71,7 +71,7 @@ const libraries = [
         hours: "Sunday 2 PM–  10 PM | Monday–Thursday 8 AM – 7 PM | Friday 8 AM – 5 PM | Closed Saturday.",
         size: "Medium",
         studyRooms: "There are no study rooms.",
-        notes: "The LACC Reading Room allows for group study with conversation at a reasonable volume.",
+        notes: "The Reading Room allows reasonable volume conversation for group study.",
     },
     {
         name: "Map and Imagery Library",
@@ -79,7 +79,7 @@ const libraries = [
         hours: "Monday-Friday 9AM - 5 PM",
         size: "Medium",
         studyRooms: "There are no study rooms.",
-        notes: "Houses approximately 500,000 maps, 300,000 aerial photographs, and 8,000 atlases and reference books.",
+        notes: "This contains roughly 500,000 maps, 300,00 aerial photographs, and 8,000 reference books.",
     },
 ];
 

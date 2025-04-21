@@ -96,7 +96,7 @@ function RegisterForm() {
                 />
 
                 <button type="submit" className={styles.button}>
-                    Register
+                    REGISTER
                 </button>
 
                 <div className={styles.loginRedirect}>

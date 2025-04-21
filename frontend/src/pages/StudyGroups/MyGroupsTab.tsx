@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./StudyGroups.module.css";
+import GroupMessages from "./GroupMessages";
 
 interface Group {
     id: number;
@@ -52,6 +53,7 @@ function MyGroupsTab() {
                             <p><strong>Subject:</strong> {group.course_code.split("-")[0]}</p>
                             <p><strong>Course Code:</strong> {group.course_code.split("-")[1]}</p>
                             <p><strong>Description:</strong> {group.description}</p>
+                            <GroupMessages groupId={group.id} />
                             <button
                                 className={styles.leaveButton}
                                 onClick={() => handleLeaveGroup(group.id)}

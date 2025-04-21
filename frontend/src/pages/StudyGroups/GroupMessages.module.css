@@ -1,0 +1,80 @@
+.wrapper {
+    margin-top: 20px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    padding: 20px;
+    background: #fff;
+    max-width: 100%;
+    box-sizing: border-box;
+}
+
+.toggleButton {
+    background-color: #0d6efd;
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-bottom: 10px;
+}
+
+.messageBoard {
+    margin-top: 10px;
+}
+
+.heading {
+    margin-bottom: 10px;
+    font-size: 20px;
+    color: #003366;
+}
+
+.messageList {
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background: #f9f9f9;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.message {
+    margin-bottom: 10px;
+    background: #f1f1f1;
+    padding: 10px;
+    border-radius: 8px;
+    word-wrap: break-word;
+}
+
+.message p {
+    margin: 5px 0 0 0;
+    word-break: break-word;
+}
+
+.time {
+    font-size: 0.8rem;
+    color: gray;
+    margin-left: 8px;
+}
+
+.textarea {
+    width: 100%;
+    height: 80px;
+    resize: none;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #ccc;
+    box-sizing: border-box;
+    margin-bottom: 10px;
+}
+
+.sendButton {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 16px;
+    border-radius: 8px;
+    cursor: pointer;
+    float: right;
+}

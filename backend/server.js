@@ -387,6 +387,45 @@ app.get("/classes/:userId", (req, res) => {
     });
 });
 
+// Create a new message in a group
+app.post("/messages/send", (req, res) => {
+    const { group_id, sender_id, content } = req.body;
+
+    const sql = `
+        INSERT INTO group_messages (group_id, user_id, content)
+        VALUES (?, ?, ?)`;
+
+    db.query(sql, [group_id, sender_id, content], (err) => {
+        if (err) {
+            console.error("Failed to send message", err);
+            return res.status(500).json({ error: "Failed to send message" });
+        }
+        res.status(201).json({ message: "Message sent" });
+    });
+});
+
+// Get all messages for a specific group
+app.get("/groups/messages/:groupId", (req, res) => {
+    const { groupId } = req.params;
+
+    const sql = `
+        SELECT gm.id, gm.content, gm.timestamp, u.name AS sender
+        FROM group_messages gm
+                 JOIN users u ON gm.user_id = u.id
+        WHERE gm.group_id = ?
+        ORDER BY gm.timestamp ASC`;
+
+    db.query(sql, [groupId], (err, results) => {
+        if (err) {
+            console.error("Failed to fetch messages", err);
+            return res.status(500).json({ error: "Failed to fetch messages" });
+        }
+        res.status(200).json(results);
+    });
+});
+
+
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

@@ -168,7 +168,7 @@ app.get("/groups/search", (req, res) => {
     const { userId, query } = req.query;
 
     const sql = `
-        SELECT sg.id, sg.name, sg.course_code, sg.max_members, sg.preference
+        SELECT sg.id, sg.name, sg.course_code, sg.max_members, sg.preference, sg.description
         FROM study_groups sg
         WHERE (sg.name LIKE ? OR sg.course_code LIKE ?)
           AND sg.id NOT IN (

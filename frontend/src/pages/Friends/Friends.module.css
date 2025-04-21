@@ -88,10 +88,11 @@
 
 .card {
     background-color: white;
-    padding: 1rem;
+    padding: 1.5rem;
     border-radius: 1rem;
     box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08);
     text-align: left;
+    line-height: 1.5;
 }
 
 .removeButton {

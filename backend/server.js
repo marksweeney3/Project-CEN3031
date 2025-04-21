@@ -275,7 +275,7 @@ app.get("/friends/:userId", (req, res) => {
     const { userId } = req.params;
 
     const sql = `
-        SELECT u.id, u.name, u.email
+        SELECT u.id, u.name, u.email, u.year, u.major, u.preferences
         FROM users u
         JOIN friends f ON u.id = f.friend_id
         WHERE f.user_id = ? AND f.status = 'accepted'

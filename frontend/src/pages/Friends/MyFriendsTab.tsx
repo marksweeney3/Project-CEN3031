@@ -6,6 +6,9 @@ interface Friend {
     id: number;
     name: string;
     email: string;
+    year: string;
+    major: string;
+    preferences: string;
 }
 
 function MyFriendsTab() {
@@ -34,7 +37,10 @@ function MyFriendsTab() {
                 friends.map((friend) => (
                     <div key={friend.id} className={styles.card}>
                         <h3>{friend.name}</h3>
-                        <p>{friend.email}</p>
+                        <p><strong>Email:</strong> {friend.email}</p>
+                        <p><strong>Year:</strong> {friend.year}</p>
+                        <p><strong>Major:</strong> {friend.major}</p>
+                        <p><strong>Preferences:</strong> {friend.preferences}</p>
                     </div>
                 ))
             )}

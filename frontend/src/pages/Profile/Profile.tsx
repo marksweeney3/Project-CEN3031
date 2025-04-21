@@ -13,7 +13,7 @@ function Profile() {
         major: "",
     });
 
-    const [message, setMessage] = useState("");
+    const [classes, setClasses] = useState<string[]>([]);
     const navigate = useNavigate();
     const userId = localStorage.getItem("userId");
 
@@ -27,35 +27,36 @@ function Profile() {
             }
         };
 
-        if (userId) fetchProfile();
+        const fetchClasses = async () => {
+            try {
+                const res = await axios.get(`http://localhost:5001/classes/${userId}`);
+                setClasses(res.data.map((c: { course_code: string }) => c.course_code));
+            } catch (err) {
+                console.error("Failed to fetch classes", err);
+            }
+        };
+
+        if (userId) {
+            fetchProfile();
+            fetchClasses();
+        }
     }, [userId]);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
-        const { name, value } = e.target;
-        setProfile((prev) => ({ ...prev, [name]: value }));
-    };
-
-    const handleSubmit = async (e: React.FormEvent) => {
-        e.preventDefault();
+    const handleRemoveClass = async (courseCode: string) => {
         try {
-            await axios.post("http://localhost:5001/update-profile", {
-                userId,
-                year: profile.year,
-                preferences: profile.preferences,
-                favoriteClass: profile.favoriteClass,
-                major: profile.major,
-                name: profile.name, // still included for backend
+            await axios.post("http://localhost:5001/classes/remove", {
+                user_id: userId,
+                course_code: courseCode,
             });
-            setMessage("Profile updated!");
+            setClasses((prev) => prev.filter((code) => code !== courseCode));
         } catch (err) {
-            console.error("Update failed", err);
-            setMessage("Error updating profile");
+            console.error("Failed to remove class", err);
         }
     };
 
     return (
         <div className={styles.container}>
-            <form onSubmit={handleSubmit} className={styles.form}>
+            <form className={styles.form}>
                 <h2 className={styles.title}>Your Profile</h2>
 
                 <input
@@ -79,7 +80,7 @@ function Profile() {
                     name="year"
                     placeholder="Year (e.g. Freshman)"
                     value={profile.year}
-                    onChange={handleChange}
+                    readOnly
                     className={styles.input}
                 />
                 <input
@@ -87,7 +88,7 @@ function Profile() {
                     name="preferences"
                     placeholder="Study Preferences (online/in person)"
                     value={profile.preferences}
-                    onChange={handleChange}
+                    readOnly
                     className={styles.input}
                 />
                 <input
@@ -95,7 +96,7 @@ function Profile() {
                     name="favoriteClass"
                     placeholder="Favorite Class"
                     value={profile.favoriteClass}
-                    onChange={handleChange}
+                    readOnly
                     className={styles.input}
                 />
                 <input
@@ -103,18 +104,29 @@ function Profile() {
                     name="major"
                     placeholder="Major"
                     value={profile.major}
-                    onChange={handleChange}
+                    readOnly
                     className={styles.input}
                 />
 
-                <button type="submit" className={styles.button}>Apply Changes</button>
-                {message && <p className={styles.message}>{message}</p>}
+                <h3 className={styles.subtitle}>Your Classes</h3>
+                <ul className={styles.classList}>
+                    {classes.map((course) => (
+                        <li key={course} className={styles.classItem}>
+                            {course}
+                            <button
+                                className={styles.removeButton}
+                                onClick={() => handleRemoveClass(course)}
+                            >
+                                Remove
+                            </button>
+                        </li>
+                    ))}
+                </ul>
             </form>
 
             <button onClick={() => navigate("/home")} className={styles.returnButton}>
                 ← Return Home
             </button>
-
         </div>
     );
 }

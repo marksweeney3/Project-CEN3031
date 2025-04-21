@@ -340,6 +340,53 @@ app.post("/friends/remove", (req, res) => {
     });
 });
 
+// Add a class for a user
+app.post("/classes/add", (req, res) => {
+    const { user_id, course_code } = req.body;
+
+    const sql = `
+        INSERT INTO user_classes (user_id, course_code)
+        VALUES (?, ?)
+        ON DUPLICATE KEY UPDATE course_code = course_code
+    `;
+
+    db.query(sql, [user_id, course_code], (err) => {
+        if (err) return res.status(500).json({ error: "Failed to add class" });
+        res.status(200).json({ message: "Class added successfully" });
+    });
+});
+
+// Remove a class for a user
+app.post("/classes/remove", (req, res) => {
+    const { user_id, course_code } = req.body;
+
+    const sql = `
+        DELETE FROM user_classes
+        WHERE user_id = ? AND course_code = ?
+    `;
+
+    db.query(sql, [user_id, course_code], (err) => {
+        if (err) return res.status(500).json({ error: "Failed to remove class" });
+        res.status(200).json({ message: "Class removed successfully" });
+    });
+});
+
+// Get classes for a user
+app.get("/classes/:userId", (req, res) => {
+    const { userId } = req.params;
+
+    const sql = `
+        SELECT course_code
+        FROM user_classes
+        WHERE user_id = ?
+    `;
+
+    db.query(sql, [userId], (err, results) => {
+        if (err) return res.status(500).json({ error: "Failed to fetch classes" });
+        res.status(200).json(results);
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

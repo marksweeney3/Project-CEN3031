@@ -40,7 +40,8 @@ function MySessionsTab() {
                         <div key={session.id} className={styles.sessionCard}>
                             <h3>{session.name}</h3>
                             <p><strong>Group:</strong> {session.group_name}</p>
-                            <p><strong>Course:</strong> {session.course_code}</p>
+                            <p><strong>Subject:</strong> {session.course_code.split("-")[0]}</p>
+                            <p><strong>Course Code:</strong> {session.course_code.split("-")[1]}</p>
                             <p><strong>Location:</strong> {session.location}</p>
                             <p><strong>Time:</strong> {new Date(session.date_time).toLocaleString()}</p>
                             <p><strong>Description:</strong> {session.description}</p>

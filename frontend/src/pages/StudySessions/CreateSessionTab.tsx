@@ -60,7 +60,7 @@ function CreateSessionTab() {
                     ))}
                 </select>
                 <input name="name" placeholder="Session Name" required className={styles.input}/>
-                <input name="location" placeholder="Location (e.g. Library West Room 201)" required
+                <input name="location" placeholder="Location (e.g. Marston Science Library Floor 3)" required
                        className={styles.input}/>
                 <input name="date_time" type="datetime-local" required className={styles.input}/>
                 <textarea name="description" placeholder="Description" rows={3} className={styles.textarea}/>

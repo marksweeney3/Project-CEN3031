@@ -17,109 +17,111 @@ const categorizedCourses: Category[] = [
     {
         category: "Accounting",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "ACG2021", name: "Introduction to Financial Accounting", credits: 3 },
+            { code: "ACG2071", name: "Introduction to Managerial Accounting", credits: 3 },
+            { code: "ACG3101", name: "Intermediate Financial Accounting 1", credits: 4 },
+            { code: "TAX4001", name: "Introduction to Federal Income Tax", credits: 3 },
+            { code: "ACG3401", name: "Business Processes and Accounting Information Systems", credits: 4 },
         ],
     },
     {
         category: "Advertising",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "ADV3008", name: "Principles of Advertising", credits: 3 },
+            { code: "ADV3101", name: "Advertising Strategy", credits: 3 },
+            { code: "ADV3500", name: "Advertising Research", credits: 3 },
+            { code: "ADV4101", name: "Creative Advertising", credits: 3 },
+            { code: "ADV4800", name: "Advertising Campaigns", credits: 3 },
         ],
     },
     {
         category: "African American Studies",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
-        ],
-    },
-    {
-        category: "African Studies",
-        courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
-        ],
-    },
-    {
-        category: "African | Languages, Literatures, and Cultures",
-        courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "AFA2000", name: "Introduction to African American Studies", credits: 3 },
+            { code: "AFA3110", name: "Key Issues in African American and Black Atlantic Thought", credits: 3 },
+            { code: "AFA3332", name: "Black Feminist and Womanist Theory", credits: 3 },
+            { code: "AFA3350", name: "Black Masculinities", credits: 3 },
+            { code: "AFA4936", name: "Senior Seminar in African American Studies", credits: 3 },
         ],
     },
     {
         category: "Agricultural and Biological Engineering",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "ABE2012C", name: "Introduction to Biological Engineering", credits: 3 },
+            { code: "ABE3060", name: "Biological Engineering Design", credits: 3 },
+            { code: "ABE3612C", name: "Heat and Mass Transfer in Biological Systems", credits: 4 },
+            { code: "ABE4033", name: "Applied Hydrology", credits: 3 },
+            { code: "ABE4660C", name: "Applied Microbial Biotechnology", credits: 3 },
         ],
     },
     {
         category: "Agricultural and Life Sciences",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
-        ],
-    },
-    {
-        category: "Agricultural Education and Communication",
-        courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
-        ],
-    },
-    {
-        category: "Agricultural Operations Management",
-        courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
-        ],
-    },
-    {
-        category: "Agronomy",
-        courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
-        ],
-    },
-    {
-        category: "AI | Artificial Intelligence",
-        courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "ALS3153", name: "Agricultural Ecology", credits: 3 },
+            { code: "ALS3203", name: "Career Development in Agriculture and Life Sciences", credits: 3 },
+            { code: "ALS4161", name: "Exploring Agricultural and Life Sciences Issues", credits: 3 },
+            { code: "ALS4932", name: "Special Topics in Agricultural and Life Sciences", credits: 3 },
+            { code: "ALS4419", name: "Agricultural Risk Management and the Law", credits: 3 },
         ],
     },
     {
         category: "Animal Sciences",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "ANS3006", name: "Introduction to Animal Science", credits: 3 },
+            { code: "ANS3440", name: "Principles of Animal Nutrition", credits: 4 },
+            { code: "ANS3217C", name: "Equine Science", credits: 3 },
+            { code: "ANS3613L", name: "Meat Selection and Grading", credits: 2 },
+            { code: "ANS4932", name: "Special Topics in Animal Sciences", credits: 3 },
         ],
     },
     {
         category: "Anthropology",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "ANT2000", name: "General Anthropology", credits: 3 },
+            { code: "ANT2410", name: "Cultural Anthropology", credits: 3 },
+            { code: "ANT3514C", name: "Introduction to Biological Anthropology", credits: 4 },
+            { code: "ANT3620", name: "Language and Culture", credits: 3 },
+            { code: "ANT4114", name: "Principles of Archaeology", credits: 3 },
         ],
     },
     {
         category: "Applied Physiology and Kinesiology",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
-        ],
-    },
-    {
-        category: "Arabic | Languages, Literatures, and Cultures",
-        courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "APK2100C", name: "Applied Human Anatomy with Laboratory", credits: 4 },
+            { code: "APK2105C", name: "Applied Human Physiology with Laboratory", credits: 4 },
+            { code: "APK3110C", name: "Physiology of Exercise and Training", credits: 3 },
+            { code: "APK3220C", name: "Biomechanics of Human Motion", credits: 3 },
+            { code: "APK3400", name: "Introduction to Sport Psychology", credits: 3 },
         ],
     },
     {
         category: "Architecture",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "ARC1701", name: "Architectural History 1", credits: 3 },
+            { code: "ARC2201", name: "Architectural Design 1", credits: 4 },
+            { code: "ARC2303", name: "Architectural Structures 1", credits: 3 },
+            { code: "ARC3320", name: "Architectural Structures 2", credits: 3 },
+            { code: "ARC4071", name: "Architectural Environmental Technology 1", credits: 3 },
         ],
     },
     {
         category: "Art + Art History",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "ARH2050", name: "Introduction to the Principles and History of Art 1", credits: 3 },
+            { code: "ARH2051", name: "Introduction to the Principles and History of Art 2", credits: 3 },
+            { code: "ART2305C", name: "Perceptual Drawing", credits: 3 },
+            { code: "ART2701C", name: "Sculpture: Shaping Form and Space", credits: 3 },
+            { code: "ART2930C", name: "Special Topics in Studio Art", credits: 3 },
         ],
     },
     {
         category: "Astronomy and Astrophysics",
         courses: [
-            { code: "XXX9999", name: "Enter", credits: 3 },
+            { code: "AST1002", name: "Discovering the Universe", credits: 3 },
+            { code: "AST3018", name: "Astronomy and Astrophysics 1", credits: 3 },
+            { code: "AST3019", name: "Astronomy and Astrophysics 2", credits: 3 },
+            { code: "AST3722C", name: "Observational Techniques in Astronomy", credits: 3 },
+            { code: "AST4300", name: "Galaxies and Cosmology", credits: 3 },
         ],
     },
     {
@@ -222,15 +224,15 @@ const categorizedCourses: Category[] = [
             { code: "COP4600", name: "Operating Systems", credits: 3 },
             { code: "EGS4034", name: "Engineering Ethics and Professionalism", credits: 1 },
             { code: "CGS3065", name: "Legal and Social Issues in Computing", credits: 1 },
-            { code: "CIS4905", name: "Individual Study in CISE", credits: 0 },
-            { code: "CIS4930", name: "Special Topics in CISE", credits: 0 },
-            { code: "CIS4940", name: "Practical Work", credits: 0 },
-            { code: "CIS4949", name: "Co-Op Work in CISE", credits: 0 },
-            { code: "EGN4912", name: "Engineering Directed Independent Research", credits: 0 },
-            { code: "EGN4951", name: "Integrated Product and Process Design 1", credits: 0 },
-            { code: "EIN3354", name: "Engineering Economy", credits: 0 },
-            { code: "EEL3701C", name: "Digital Logic and Computer Systems", credits: 0 },
-            { code: "EEL4744C", name: "Microprocessor Applications", credits: 0 },
+            { code: "CIS4905", name: "Individual Study in CISE", credits: 1-3 },
+            { code: "CIS4930", name: "Special Topics in CISE", credits: 3 },
+            { code: "CIS4940", name: "Practical Work", credits: 1-3 },
+            { code: "CIS4949", name: "Co-Op Work in CISE", credits: 1-3 },
+            { code: "EGN4912", name: "Engineering Directed Independent Research", credits: 3 },
+            { code: "EGN4951", name: "Integrated Product and Process Design 1", credits: 3 },
+            { code: "EIN3354", name: "Engineering Economy", credits: 3 },
+            { code: "EEL3701C", name: "Digital Logic and Computer Systems", credits: 4 },
+            { code: "EEL4744C", name: "Microprocessor Applications", credits: 4 },
         ],
     },
     {

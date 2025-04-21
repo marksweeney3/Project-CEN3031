@@ -13,8 +13,16 @@ function Home() {
         }
     }, []);
 
+    const handleLogout = () => {
+        localStorage.clear(); // Clear all stored user data
+        navigate("/login"); // Redirect to the login page
+    };
+
     return (
         <div className={styles.wrapper}>
+            <button className={styles.logoutButton} onClick={handleLogout}>
+                Logout
+            </button>
             <div className={styles.header}>
                 <img src="/uf.png" alt="UF Logo" className={styles.logo} />
                 <h1 className={styles.title}>GatorStudyCentral</h1>

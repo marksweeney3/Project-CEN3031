@@ -45,6 +45,8 @@ function CreateGroupTab() {
                     type="number"
                     placeholder="Max Members"
                     required
+                    min={1}
+                    max={500}
                     className={styles.input}
                 />
                 <select name="preference" className={styles.input}>

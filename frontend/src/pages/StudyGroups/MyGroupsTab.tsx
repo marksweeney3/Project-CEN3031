@@ -49,7 +49,8 @@ function MyGroupsTab() {
                     {groups.map((group) => (
                         <div key={group.id} className={styles.groupCard}>
                             <h3>{group.name}</h3>
-                            <p><strong>Class:</strong> {group.course_code}</p>
+                            <p><strong>Subject:</strong> {group.course_code.split("-")[0]}</p>
+                            <p><strong>Course Code:</strong> {group.course_code.split("-")[1]}</p>
                             <p><strong>Description:</strong> {group.description}</p>
                             <button
                                 className={styles.leaveButton}

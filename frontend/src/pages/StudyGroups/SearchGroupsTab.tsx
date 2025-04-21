@@ -43,8 +43,6 @@ function SearchGroupsTab() {
         }
     };
 
-    const extractSubject = (courseCode: string) => courseCode.split("-")[0] || courseCode;
-
     return (
         <div>
             <input
@@ -58,8 +56,8 @@ function SearchGroupsTab() {
                 {groups.map((group) => (
                     <div key={group.id} className={styles.groupCard}>
                         <h3>{group.name}</h3>
-                        <p><strong>Subject:</strong> {extractSubject(group.course_code)}</p>
-                        <p><strong>Course Code:</strong> {group.course_code}</p>
+                        <p><strong>Subject:</strong> {group.course_code.split("-")[0]}</p>
+                        <p><strong>Course Code:</strong> {group.course_code.split("-")[1]}</p>
                         <p><strong>Max Members:</strong> {group.max_members}</p>
                         <p><strong>Description:</strong> {group.description}</p>
                         <button className={styles.joinButton} onClick={() => handleJoin(group.id)}>

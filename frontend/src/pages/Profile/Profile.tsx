@@ -1,56 +1,53 @@
-import { useState, useEffect } from "react";
+import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Profile.module.css";
 
 function Profile() {
-    const [form, setForm] = useState({
+    const [profile, setProfile] = useState({
+        email: "",
         name: "",
         year: "",
         preferences: "",
         favoriteClass: "",
         major: "",
-        email: "",
     });
 
     const [message, setMessage] = useState("");
     const userId = localStorage.getItem("userId");
 
     useEffect(() => {
-        if (!userId) return;
-
         const fetchProfile = async () => {
             try {
                 const res = await axios.get(`http://localhost:5001/profile/${userId}`);
-                setForm(res.data); // Fills all fields including email
+                setProfile(res.data);
             } catch (err) {
-                console.error("Failed to load profile", err);
+                console.error("Failed to fetch profile", err);
             }
         };
 
-        fetchProfile();
+        if (userId) fetchProfile();
     }, [userId]);
 
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-        setForm({ ...form, [e.target.name]: e.target.value });
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setProfile((prev) => ({ ...prev, [name]: value }));
     };
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
         try {
-            const res = await axios.post("http://localhost:5001/update-profile", {
+            await axios.post("http://localhost:5001/update-profile", {
                 userId,
-                name: form.name,
-                year: form.year,
-                preferences: form.preferences,
-                favoriteClass: form.favoriteClass,
-                major: form.major,
+                year: profile.year,
+                preferences: profile.preferences,
+                favoriteClass: profile.favoriteClass,
+                major: profile.major,
+                name: profile.name, // still included for backend
             });
-
-            setMessage(res.data.message);
+            setMessage("Profile updated!");
         } catch (err) {
-            console.error(err);
-            setMessage("Failed to update profile");
+            console.error("Update failed", err);
+            setMessage("Error updating profile");
         }
     };
 
@@ -59,30 +56,27 @@ function Profile() {
             <form onSubmit={handleSubmit} className={styles.form}>
                 <h2 className={styles.title}>Your Profile</h2>
 
-                {/* Read-only email display */}
                 <input
                     type="email"
                     name="email"
-                    value={form.email}
+                    value={profile.email}
                     readOnly
-                    className={styles.input}
+                    className={`${styles.input} ${styles.readonly}`}
                     placeholder="Email"
-                    style={{ backgroundColor: "#f3f4f6", cursor: "not-allowed" }}
                 />
-
                 <input
                     type="text"
                     name="name"
-                    placeholder="Full Name"
-                    value={form.name}
-                    onChange={handleChange}
-                    className={styles.input}
+                    value={profile.name}
+                    readOnly
+                    className={`${styles.input} ${styles.readonly}`}
+                    placeholder="Name"
                 />
                 <input
                     type="text"
                     name="year"
-                    placeholder="Year (e.g. Sophomore)"
-                    value={form.year}
+                    placeholder="Year (e.g. Freshman)"
+                    value={profile.year}
                     onChange={handleChange}
                     className={styles.input}
                 />
@@ -90,7 +84,7 @@ function Profile() {
                     type="text"
                     name="preferences"
                     placeholder="Study Preferences (online/in person)"
-                    value={form.preferences}
+                    value={profile.preferences}
                     onChange={handleChange}
                     className={styles.input}
                 />
@@ -98,7 +92,7 @@ function Profile() {
                     type="text"
                     name="favoriteClass"
                     placeholder="Favorite Class"
-                    value={form.favoriteClass}
+                    value={profile.favoriteClass}
                     onChange={handleChange}
                     className={styles.input}
                 />
@@ -106,7 +100,7 @@ function Profile() {
                     type="text"
                     name="major"
                     placeholder="Major"
-                    value={form.major}
+                    value={profile.major}
                     onChange={handleChange}
                     className={styles.input}
                 />

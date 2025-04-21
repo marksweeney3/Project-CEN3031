@@ -65,7 +65,7 @@
 }
 
 .message {
-    color: #dc2626; /* Red */
+    color: green;
     text-align: center;
     margin-top: 1rem;
     font-weight: 500;

@@ -241,6 +241,66 @@ app.get("/sessions/user/:userId", (req, res) => {
     });
 });
 
+app.post("/friends/add", (req, res) => {
+    const { user_id, friend_email } = req.body;
+
+    const sqlFind = "SELECT id FROM users WHERE email = ?";
+    db.query(sqlFind, [friend_email], (err, results) => {
+        if (err || results.length === 0) {
+            return res.status(404).json({ error: "Friend not found" });
+        }
+
+        const friend_id = results[0].id;
+
+        if (friend_id === parseInt(user_id)) {
+            return res.status(400).json({ error: "You can't add yourself as a friend" });
+        }
+
+        const sqlInsert = `
+            INSERT INTO friends (user_id, friend_id, status)
+            VALUES (?, ?, 'accepted')
+            ON DUPLICATE KEY UPDATE status = 'accepted'
+        `;
+        db.query(sqlInsert, [user_id, friend_id], (err) => {
+            if (err) {
+                return res.status(500).json({ error: "Failed to add friend" });
+            }
+
+            res.status(200).json({ message: "Friend added!" });
+        });
+    });
+});
+
+app.get("/friends/:userId", (req, res) => {
+    const { userId } = req.params;
+
+    const sql = `
+        SELECT u.id, u.name, u.email
+        FROM users u
+        JOIN friends f ON u.id = f.friend_id
+        WHERE f.user_id = ? AND f.status = 'accepted'
+    `;
+
+    db.query(sql, [userId], (err, results) => {
+        if (err) return res.status(500).json({ error: "Failed to fetch friends" });
+        res.status(200).json(results);
+    });
+});
+
+app.post("/friends/remove", (req, res) => {
+    const { user_id, friend_id } = req.body;
+
+    const sql = `
+        DELETE FROM friends
+        WHERE user_id = ? AND friend_id = ?
+    `;
+
+    db.query(sql, [user_id, friend_id], (err) => {
+        if (err) return res.status(500).json({ error: "Failed to remove friend" });
+        res.status(200).json({ message: "Friend removed" });
+    });
+});
+
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);
 });

@@ -10,12 +10,11 @@ const PORT = process.env.PORT || 5001;
 app.use(cors());
 app.use(express.json());
 
-// API test
 app.get("/", (req, res) => {
     res.send("API is running...");
 });
 
-// Registration
+// User registration
 app.post("/register", async (req, res) => {
     const { name, email, password } = req.body;
     if (!name || !email || !password) {
@@ -39,7 +38,7 @@ app.post("/register", async (req, res) => {
     }
 });
 
-// Login
+// User login
 app.post("/login", (req, res) => {
     const { email, password } = req.body;
     const sql = "SELECT * FROM users WHERE email = ?";
@@ -60,7 +59,7 @@ app.post("/login", (req, res) => {
     });
 });
 
-// Update profile
+// User profile update
 app.post("/update-profile", (req, res) => {
     const { userId, name, year, preferences, favoriteClass, major } = req.body;
     if (!userId) return res.status(400).json({ error: "User ID is missing" });
@@ -80,7 +79,7 @@ app.post("/update-profile", (req, res) => {
     });
 });
 
-// Get profile
+// Get user profile
 app.get("/profile/:userId", (req, res) => {
     const { userId } = req.params;
 
@@ -97,6 +96,7 @@ app.get("/profile/:userId", (req, res) => {
     });
 });
 
+// Create study group
 app.post("/groups/create", (req, res) => {
     const { name, course_code, max_members, preference, creator_id, description } = req.body;
 
@@ -120,7 +120,7 @@ app.post("/groups/create", (req, res) => {
     });
 });
 
-
+// Join study group
 app.post("/groups/join", (req, res) => {
     const { group_id, user_id } = req.body;
 
@@ -134,6 +134,7 @@ app.post("/groups/join", (req, res) => {
     });
 });
 
+// Leave study group
 app.post("/groups/leave", (req, res) => {
     const { group_id, user_id } = req.body;
 
@@ -147,7 +148,7 @@ app.post("/groups/leave", (req, res) => {
     });
 });
 
-// My groups
+// Get my groups
 app.get("/groups/my-groups/:userId", (req, res) => {
     const userId = req.params.userId;
 
@@ -164,6 +165,7 @@ app.get("/groups/my-groups/:userId", (req, res) => {
     });
 });
 
+// SEearch study group
 app.get("/groups/search", (req, res) => {
     const { userId, query } = req.query;
 
@@ -201,7 +203,7 @@ app.post("/sessions/create", (req, res) => {
     });
 });
 
-// Get user's upcoming sessions
+// Get upcoming study sessions
 app.get("/sessions/my/:userId", (req, res) => {
     const userId = req.params.userId;
 
@@ -224,6 +226,7 @@ app.get("/sessions/my/:userId", (req, res) => {
     });
 });
 
+// Get user study sessions
 app.get("/sessions/user/:userId", (req, res) => {
     const { userId } = req.params;
 
@@ -241,6 +244,7 @@ app.get("/sessions/user/:userId", (req, res) => {
     });
 });
 
+// Add a friend
 app.post("/friends/add", (req, res) => {
     const { user_id, friend_email } = req.body;
 
@@ -269,6 +273,7 @@ app.post("/friends/add", (req, res) => {
     });
 });
 
+// Request friend
 app.get("/friends/requests/:userId", (req, res) => {
     const { userId } = req.params;
 
@@ -286,6 +291,7 @@ app.get("/friends/requests/:userId", (req, res) => {
 });
 
 
+// Get user friends
 app.get("/friends/:userId", (req, res) => {
     const { userId } = req.params;
 
@@ -302,6 +308,7 @@ app.get("/friends/:userId", (req, res) => {
     });
 });
 
+// Accept friend request
 app.post("/friends/accept", (req, res) => {
     const { user_id, friend_id } = req.body;
 
@@ -326,6 +333,7 @@ app.post("/friends/accept", (req, res) => {
     });
 });
 
+// Remove a friend
 app.post("/friends/remove", (req, res) => {
     const { user_id, friend_id } = req.body;
 
@@ -340,7 +348,7 @@ app.post("/friends/remove", (req, res) => {
     });
 });
 
-// Add a class for a user
+// Add a class
 app.post("/classes/add", (req, res) => {
     const { user_id, course_code } = req.body;
 
@@ -356,7 +364,7 @@ app.post("/classes/add", (req, res) => {
     });
 });
 
-// Remove a class for a user
+// Remove a class
 app.post("/classes/remove", (req, res) => {
     const { user_id, course_code } = req.body;
 
@@ -371,7 +379,7 @@ app.post("/classes/remove", (req, res) => {
     });
 });
 
-// Get classes for a user
+// Get classes
 app.get("/classes/:userId", (req, res) => {
     const { userId } = req.params;
 
@@ -387,7 +395,7 @@ app.get("/classes/:userId", (req, res) => {
     });
 });
 
-// Create a new message in a group
+// Send message in group
 app.post("/messages/send", (req, res) => {
     const { group_id, sender_id, content } = req.body;
 
@@ -404,7 +412,7 @@ app.post("/messages/send", (req, res) => {
     });
 });
 
-// Get all messages for a specific group
+// Get messages for a group
 app.get("/groups/messages/:groupId", (req, res) => {
     const { groupId } = req.params;
 
@@ -423,8 +431,6 @@ app.get("/groups/messages/:groupId", (req, res) => {
         res.status(200).json(results);
     });
 });
-
-
 
 app.listen(PORT, () => {
     console.log(`Server running on port ${PORT}`);

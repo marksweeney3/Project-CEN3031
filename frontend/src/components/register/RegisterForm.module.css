@@ -36,7 +36,7 @@
 
 .input {
     padding: 0.5rem 1rem;
-    border: 1px solid #d1d5db; /* Light gray */
+    border: 1px solid #d1d5db;
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     font-size: 1rem;
@@ -44,12 +44,12 @@
 
 .input:focus {
     outline: none;
-    border-color: #3b82f6; /* Normal blue */
-    box-shadow: 0 0 0 2px #93c5fd; /* Light blue */
+    border-color: #3b82f6;
+    box-shadow: 0 0 0 2px #93c5fd;
 }
 
 .button {
-    background-color: #2563eb; /* Dark blue */
+    background-color: #2563eb;
     color: white;
     padding: 0.5rem 0;
     font-weight: 600;
@@ -61,7 +61,7 @@
 }
 
 .button:hover {
-    background-color: #1d4ed8; /* Dark blue */
+    background-color: #1d4ed8;
 }
 
 .message {

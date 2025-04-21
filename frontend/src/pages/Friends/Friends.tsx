@@ -32,7 +32,6 @@ function Friends() {
             <button onClick={() => navigate("/home")} className={styles.returnButton}>
                 ← Return Home
             </button>
-
         </div>
     );
 }

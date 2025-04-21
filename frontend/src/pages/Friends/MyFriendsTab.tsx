@@ -9,7 +9,7 @@ interface Friend {
     year: string;
     major: string;
     preferences: string;
-    classes: string[]; // Add classes property
+    classes: string[];
 }
 
 function MyFriendsTab() {

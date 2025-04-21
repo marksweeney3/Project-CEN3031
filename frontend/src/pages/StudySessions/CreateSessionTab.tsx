@@ -39,7 +39,6 @@ function CreateSessionTab() {
             creator_id: userId,
         };
 
-
         try {
             await axios.post("http://localhost:5001/sessions/create", data);
             setMessage("Study session created!");

@@ -14,8 +14,8 @@ function Home() {
     }, []);
 
     const handleLogout = () => {
-        localStorage.clear(); // Clear all stored user data
-        navigate("/login"); // Redirect to the login page
+        localStorage.clear();
+        navigate("/login");
     };
 
     return (

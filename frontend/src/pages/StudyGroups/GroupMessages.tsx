@@ -30,7 +30,7 @@ function GroupMessages({ groupId }: Props) {
         };
 
         fetchMessages();
-        const interval = setInterval(fetchMessages, 10000); // refresh every 10s
+        const interval = setInterval(fetchMessages, 10000);
         return () => clearInterval(interval);
     }, [groupId]);
 
@@ -52,7 +52,7 @@ function GroupMessages({ groupId }: Props) {
     const formatLocalTime = (utcTimestamp: string) => {
         try {
             const utcDate = new Date(utcTimestamp);
-            const adjustedDate = new Date(utcDate.getTime() - 4 * 60 * 60 * 1000); // Subtract 4 hours
+            const adjustedDate = new Date(utcDate.getTime() - 4 * 60 * 60 * 1000);
             return adjustedDate.toLocaleString("en-US", {
                 month: "short",
                 day: "numeric",

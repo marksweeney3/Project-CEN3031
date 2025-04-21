@@ -11,13 +11,11 @@ function Login() {
 
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
-
         try {
             const res = await axios.post("http://localhost:5001/login", {
                 email,
                 password,
             });
-
             setMessage(res.data.message);
             localStorage.setItem("userId", res.data.userId.toString());
             localStorage.setItem("userName", res.data.name);

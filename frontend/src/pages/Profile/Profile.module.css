@@ -84,7 +84,7 @@
 }
 
 .saveButton {
-    background-color: #1e3a8a; /* teal/green */
+    background-color: #1e3a8a;
     color: white;
     font-weight: 600;
     padding: 0.75rem;
@@ -99,7 +99,6 @@
 .saveButton:hover {
     background-color: #059669;
 }
-
 
 .classList {
     list-style: none;

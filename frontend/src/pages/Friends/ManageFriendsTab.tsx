@@ -55,7 +55,6 @@ function ManageFriendsTab() {
                 user_id: userId,
                 friend_id: friendId,
             });
-            // Move from requests to friends
             const acceptedFriend = requests.find((r) => r.id === friendId);
             if (acceptedFriend) {
                 setFriends((prev) => [...prev, acceptedFriend].sort((a, b) => a.name.localeCompare(b.name)));

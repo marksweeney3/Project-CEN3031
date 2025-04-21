@@ -14,6 +14,7 @@ function Profile() {
     });
 
     const [classes, setClasses] = useState<string[]>([]);
+    const [message, setMessage] = useState("");
     const navigate = useNavigate();
     const userId = localStorage.getItem("userId");
 
@@ -42,6 +43,24 @@ function Profile() {
         }
     }, [userId]);
 
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+        const { name, value } = e.target;
+        setProfile((prev) => ({ ...prev, [name]: value }));
+    };
+
+    const handleSave = async () => {
+        try {
+            await axios.post("http://localhost:5001/update-profile", {
+                userId,
+                ...profile,
+            });
+            setMessage("Profile updated!");
+        } catch (err) {
+            console.error("Failed to update profile", err);
+            setMessage("Error updating profile");
+        }
+    };
+
     const handleRemoveClass = async (courseCode: string) => {
         try {
             await axios.post("http://localhost:5001/classes/remove", {
@@ -56,7 +75,7 @@ function Profile() {
 
     return (
         <div className={styles.container}>
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
                 <h2 className={styles.title}>Your Profile</h2>
 
                 <input
@@ -80,6 +99,7 @@ function Profile() {
                     name="year"
                     placeholder="Year (e.g. Freshman)"
                     value={profile.year}
+                    onChange={handleChange}
                     className={styles.input}
                 />
                 <input
@@ -87,6 +107,7 @@ function Profile() {
                     name="preferences"
                     placeholder="Study Preferences (online/in person)"
                     value={profile.preferences}
+                    onChange={handleChange}
                     className={styles.input}
                 />
                 <input
@@ -94,6 +115,7 @@ function Profile() {
                     name="favoriteClass"
                     placeholder="Favorite Class"
                     value={profile.favoriteClass}
+                    onChange={handleChange}
                     className={styles.input}
                 />
                 <input
@@ -101,8 +123,14 @@ function Profile() {
                     name="major"
                     placeholder="Major"
                     value={profile.major}
+                    onChange={handleChange}
                     className={styles.input}
                 />
+
+                <button type="button" onClick={handleSave} className={styles.saveButton}>
+                    Save Changes
+                </button>
+                {message && <p className={styles.message}>{message}</p>}
 
                 <h3 className={styles.subtitle}>Your Classes</h3>
                 <ul className={styles.classList}>

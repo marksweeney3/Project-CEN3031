@@ -258,18 +258,33 @@ app.post("/friends/add", (req, res) => {
 
         const sqlInsert = `
             INSERT INTO friends (user_id, friend_id, status)
-            VALUES (?, ?, 'accepted')
-            ON DUPLICATE KEY UPDATE status = 'accepted'
+            VALUES (?, ?, 'pending')
+            ON DUPLICATE KEY UPDATE status = 'pending'
         `;
-        db.query(sqlInsert, [user_id, friend_id], (err) => {
-            if (err) {
-                return res.status(500).json({ error: "Failed to add friend" });
-            }
 
-            res.status(200).json({ message: "Friend added!" });
+        db.query(sqlInsert, [user_id, friend_id], (err) => {
+            if (err) return res.status(500).json({ error: "Failed to send friend request" });
+            res.status(200).json({ message: "Friend request sent!" });
         });
     });
 });
+
+app.get("/friends/requests/:userId", (req, res) => {
+    const { userId } = req.params;
+
+    const sql = `
+        SELECT u.id, u.name, u.email
+        FROM friends f
+        JOIN users u ON f.user_id = u.id
+        WHERE f.friend_id = ? AND f.status = 'pending'
+    `;
+
+    db.query(sql, [userId], (err, results) => {
+        if (err) return res.status(500).json({ error: "Failed to fetch requests" });
+        res.status(200).json(results);
+    });
+});
+
 
 app.get("/friends/:userId", (req, res) => {
     const { userId } = req.params;
@@ -284,6 +299,30 @@ app.get("/friends/:userId", (req, res) => {
     db.query(sql, [userId], (err, results) => {
         if (err) return res.status(500).json({ error: "Failed to fetch friends" });
         res.status(200).json(results);
+    });
+});
+
+app.post("/friends/accept", (req, res) => {
+    const { user_id, friend_id } = req.body;
+
+    const sql = `
+        UPDATE friends
+        SET status = 'accepted'
+        WHERE user_id = ? AND friend_id = ?
+    `;
+
+    db.query(sql, [friend_id, user_id], (err) => {
+        if (err) return res.status(500).json({ error: "Failed to accept request" });
+
+        const insert = `
+            INSERT INTO friends (user_id, friend_id, status)
+            VALUES (?, ?, 'accepted')
+            ON DUPLICATE KEY UPDATE status = 'accepted'
+        `;
+        db.query(insert, [user_id, friend_id], (insertErr) => {
+            if (insertErr) return res.status(500).json({ error: "Failed to confirm mutual friendship" });
+            res.status(200).json({ message: "Friend request accepted" });
+        });
     });
 });
 

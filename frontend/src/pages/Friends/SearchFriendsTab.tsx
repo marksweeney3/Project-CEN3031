@@ -30,7 +30,7 @@ function SearchFriendsTab() {
                 onChange={(e) => setEmail(e.target.value)}
                 className={styles.input}
             />
-            <button onClick={handleAddFriend} className={styles.button}>ADD FRIEND</button>
+            <button onClick={handleAddFriend} className={styles.button}>REQUEST FRIEND</button>
             {message && <p className={styles.message}>{message}</p>}
         </div>
     );

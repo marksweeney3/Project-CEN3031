@@ -1,0 +1,69 @@
+import { useEffect, useState } from "react";
+import axios from "axios";
+import styles from "./StudyGroups.module.css";
+
+interface Group {
+    id: number;
+    name: string;
+    course_code: string;
+    member_count: number;
+    description: string;
+}
+
+function MyGroupsTab() {
+    const [groups, setGroups] = useState<Group[]>([]);
+    const userId = localStorage.getItem("userId");
+
+    useEffect(() => {
+        const fetchGroups = async () => {
+            try {
+                const res = await axios.get(`http://localhost:5001/groups/my-groups/${userId}`);
+                setGroups(res.data);
+            } catch (err) {
+                console.error("Failed to fetch groups", err);
+            }
+        };
+
+        if (userId) fetchGroups();
+    }, [userId]);
+
+    const handleLeaveGroup = async (groupId: number) => {
+        try {
+            await axios.post("http://localhost:5001/groups/leave", {
+                group_id: groupId,
+                user_id: userId,
+            });
+            setGroups((prev) => prev.filter((g) => g.id !== groupId));
+        } catch (err) {
+            console.error("Failed to leave group", err);
+        }
+    };
+
+    return (
+        <div>
+            <h2 className={styles.sectionTitle}>My Study Groups</h2>
+            {groups.length === 0 ? (
+                <p>You are not in any study groups yet.</p>
+            ) : (
+                <div className={styles.groupList}>
+                    {groups.map((group) => (
+                        <div key={group.id} className={styles.groupCard}>
+                            <h3>{group.name}</h3>
+                            <p><strong>Class:</strong> {group.course_code}</p>
+                            <p><strong>Members:</strong> {group.member_count}</p>
+                            <p><strong>Description:</strong> {group.description}</p>
+                            <button
+                                className={styles.leaveButton}
+                                onClick={() => handleLeaveGroup(group.id)}
+                            >
+                                Leave Group
+                            </button>
+                        </div>
+                    ))}
+                </div>
+            )}
+        </div>
+    );
+}
+
+export default MyGroupsTab;

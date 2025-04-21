@@ -80,7 +80,6 @@ function Profile() {
                     name="year"
                     placeholder="Year (e.g. Freshman)"
                     value={profile.year}
-                    readOnly
                     className={styles.input}
                 />
                 <input
@@ -88,7 +87,6 @@ function Profile() {
                     name="preferences"
                     placeholder="Study Preferences (online/in person)"
                     value={profile.preferences}
-                    readOnly
                     className={styles.input}
                 />
                 <input
@@ -96,7 +94,6 @@ function Profile() {
                     name="favoriteClass"
                     placeholder="Favorite Class"
                     value={profile.favoriteClass}
-                    readOnly
                     className={styles.input}
                 />
                 <input
@@ -104,7 +101,6 @@ function Profile() {
                     name="major"
                     placeholder="Major"
                     value={profile.major}
-                    readOnly
                     className={styles.input}
                 />
 

@@ -15,7 +15,11 @@ function Home() {
 
     return (
         <div className={styles.wrapper}>
-            <h1 className={styles.title}>GatorStudyCentral</h1>
+            <div className={styles.header}>
+                <img src="/uf.png" alt="UF Logo" className={styles.logo} />
+                <h1 className={styles.title}>GatorStudyCentral</h1>
+                <img src="/gator.png" alt="Gator Logo" className={styles.logo} />
+            </div>
             {userName && <p className={styles.welcome}>Welcome, {userName}!</p>}
 
             <div className={styles.spacer}>

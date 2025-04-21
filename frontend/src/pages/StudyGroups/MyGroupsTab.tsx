@@ -50,7 +50,6 @@ function MyGroupsTab() {
                         <div key={group.id} className={styles.groupCard}>
                             <h3>{group.name}</h3>
                             <p><strong>Class:</strong> {group.course_code}</p>
-                            <p><strong>Members:</strong> {group.member_count}</p>
                             <p><strong>Description:</strong> {group.description}</p>
                             <button
                                 className={styles.leaveButton}

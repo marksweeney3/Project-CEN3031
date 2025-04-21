@@ -1,10 +1,12 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CreateSessionTab from "./CreateSessionTab";
 import MySessionsTab from "./MySessionsTab";
 import styles from "./StudySessions.module.css";
 
 function StudySessions() {
     const [activeTab, setActiveTab] = useState<"my" | "create">("my");
+    const navigate = useNavigate();
 
     return (
         <div className={styles.container}>
@@ -23,7 +25,11 @@ function StudySessions() {
                 </button>
             </div>
 
-            {activeTab === "my" ? <MySessionsTab /> : <CreateSessionTab />}
+            <button onClick={() => navigate("/home")} className={styles.returnButton}>
+                ← Return Home
+            </button>
+
+            {activeTab === "my" ? <MySessionsTab/> : <CreateSessionTab/>}
         </div>
     );
 }

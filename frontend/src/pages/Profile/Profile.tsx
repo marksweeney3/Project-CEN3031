@@ -1,6 +1,7 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 import styles from "./Profile.module.css";
+import { useNavigate } from "react-router-dom";
 
 function Profile() {
     const [profile, setProfile] = useState({
@@ -13,6 +14,7 @@ function Profile() {
     });
 
     const [message, setMessage] = useState("");
+    const navigate = useNavigate();
     const userId = localStorage.getItem("userId");
 
     useEffect(() => {
@@ -108,6 +110,11 @@ function Profile() {
                 <button type="submit" className={styles.button}>Apply Changes</button>
                 {message && <p className={styles.message}>{message}</p>}
             </form>
+
+            <button onClick={() => navigate("/home")} className={styles.returnButton}>
+                ← Return Home
+            </button>
+
         </div>
     );
 }

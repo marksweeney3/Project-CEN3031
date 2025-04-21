@@ -1,4 +1,5 @@
 import styles from "./StudyRooms.module.css";
+import { useNavigate } from "react-router-dom";
 
 const libraries = [
     {
@@ -84,6 +85,9 @@ const libraries = [
 ];
 
 function StudyRooms() {
+
+    const navigate = useNavigate();
+
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Study Rooms & Libraries</h1>
@@ -99,6 +103,11 @@ function StudyRooms() {
                     </div>
                 ))}
             </div>
+
+            <button onClick={() => navigate("/home")} className={styles.returnButton}>
+                ← Return Home
+            </button>
+
         </div>
     );
 }

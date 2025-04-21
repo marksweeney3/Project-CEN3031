@@ -1,5 +1,6 @@
 import { useState } from "react";
 import styles from "./UFClasses.module.css";
+import { useNavigate } from "react-router-dom";
 
 type Course = {
     code: string;
@@ -815,6 +816,7 @@ const categorizedCourses: Category[] = [
 
 function UFClasses() {
     const [search, setSearch] = useState("");
+    const navigate = useNavigate();
 
     const matchesSearch = (text: string) =>
         text.toLowerCase().includes(search.toLowerCase());
@@ -859,6 +861,11 @@ function UFClasses() {
                     );
                 })}
             </div>
+
+            <button onClick={() => navigate("/home")} className={styles.returnButton}>
+                ← Return Home
+            </button>
+
         </div>
     );
 }

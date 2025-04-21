@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 import CreateGroupTab from "./CreateGroupTab";
 import MyGroupsTab from "./MyGroupsTab";
 import SearchGroupsTab from "./SearchGroupsTab";
@@ -6,6 +7,7 @@ import styles from "./StudyGroups.module.css";
 
 function StudyGroups() {
     const [activeTab, setActiveTab] = useState<"create" | "my" | "search">("my");
+    const navigate = useNavigate();
 
     return (
         <div className={styles.container}>
@@ -37,6 +39,11 @@ function StudyGroups() {
                 {activeTab === "search" && <SearchGroupsTab />}
                 {activeTab === "create" && <CreateGroupTab />}
             </div>
+
+            <button onClick={() => navigate("/home")} className={styles.returnButton}>
+                ← Return Home
+            </button>
+
         </div>
     );
 }

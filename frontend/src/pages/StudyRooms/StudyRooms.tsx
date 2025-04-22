@@ -88,6 +88,7 @@ function StudyRooms() {
 
     const navigate = useNavigate();
 
+    // shows information about study rooms and libraries
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Study Rooms & Libraries</h1>

@@ -29,6 +29,7 @@ function MySessionsTab() {
         if (userId) fetchSessions();
     }, [userId]);
 
+    // user can see the upcoming study sessions and information with it
     return (
         <div>
             <h2 className={styles.sectionTitle}>My Upcoming Study Sessions</h2>

@@ -31,6 +31,7 @@ function SearchGroupsTab() {
         fetchGroups();
     }, [search, userId]);
 
+    // join a study group
     const handleJoin = async (groupId: number) => {
         try {
             await axios.post("http://localhost:5001/groups/join", {
@@ -43,6 +44,7 @@ function SearchGroupsTab() {
         }
     };
 
+    // users can search by course code, class name, or group name
     return (
         <div>
             <input

@@ -27,6 +27,7 @@ function CreateGroupTab() {
         }
     };
 
+    // create a group with the required fields
     return (
         <div>
             <h2 className={styles.sectionTitle}>Create a New Study Group</h2>

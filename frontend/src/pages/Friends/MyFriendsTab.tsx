@@ -35,6 +35,7 @@ function MyFriendsTab() {
         fetchFriends();
     }, [userId]);
 
+    // see a list of your friends with their profile information
     return (
         <div className={styles.list}>
             {friends.length === 0 ? (

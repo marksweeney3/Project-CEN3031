@@ -21,6 +21,7 @@ function SearchFriendsTab() {
         }
     };
 
+    // search by user's ufl.edu email
     return (
         <div className={styles.form}>
             <input

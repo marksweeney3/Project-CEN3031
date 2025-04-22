@@ -19,11 +19,13 @@ function RegisterForm() {
     const handleSubmit = async (e: React.FormEvent) => {
         e.preventDefault();
 
+        // confirms the email ends with @ufl.edu
         if (!form.email.endsWith("@ufl.edu")) {
             setMessage("Email must end with @ufl.edu");
             return;
         }
 
+        // confirms the passwords match
         if (form.password !== form.confirmPassword) {
             setMessage("Passwords do not match");
             return;

@@ -9,6 +9,7 @@ function StudyGroups() {
     const [activeTab, setActiveTab] = useState<"create" | "my" | "search">("my");
     const navigate = useNavigate();
 
+    // main study groups page with tabs they can navigate between
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Study Groups</h1>

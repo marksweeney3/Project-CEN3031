@@ -14,6 +14,7 @@ type Category = {
     courses: Course[];
 };
 
+// UF courses grouped by main subjects
 const categorizedCourses: Category[] = [
     {
         category: "Accounting",

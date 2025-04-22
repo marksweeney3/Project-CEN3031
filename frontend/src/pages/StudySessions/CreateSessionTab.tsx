@@ -48,6 +48,7 @@ function CreateSessionTab() {
         }
     };
 
+    // create a new study session with the required fields
     return (
         <div>
             <h2 className={styles.sectionTitle}>Create a New Study Session</h2>

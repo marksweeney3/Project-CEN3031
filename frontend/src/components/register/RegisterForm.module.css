@@ -1,9 +1,11 @@
+/* This is the styling for the register page */
+
 .container {
     min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: linear-gradient(to bottom right, #bfdbfe, #93c5fd);
+    background: linear-gradient(to bottom right, #bfdbfe, #93c5fd); /* light blue */
     padding: 1rem;
 }
 
@@ -21,13 +23,13 @@
 .title {
     font-size: 1.75rem;
     font-weight: 700;
-    color: #1e3a8a;
+    color: #1e3a8a; /* dark blue */
     text-align: center;
     margin-bottom: 0.5rem;
 }
 
 .subtitle {
-    color: #1e3a8a;
+    color: #1e3a8a; /* dark blue */
     text-align: center;
     margin-bottom: 1.5rem;
     font-size: 1rem;
@@ -36,7 +38,7 @@
 
 .input {
     padding: 0.5rem 1rem;
-    border: 1px solid #d1d5db;
+    border: 1px solid #d1d5db; /* very light color */
     border-radius: 0.5rem;
     margin-bottom: 1rem;
     font-size: 1rem;
@@ -44,12 +46,12 @@
 
 .input:focus {
     outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 0 2px #93c5fd;
+    border-color: #3b82f6; /* medium blue */
+    box-shadow: 0 0 0 2px #93c5fd; /* light blue */
 }
 
 .button {
-    background-color: #2563eb;
+    background-color: #2563eb; /* dark blue */
     color: white;
     padding: 0.5rem 0;
     font-weight: 600;
@@ -61,7 +63,7 @@
 }
 
 .button:hover {
-    background-color: #1d4ed8;
+    background-color: #1d4ed8; /* dark blue */
 }
 
 .message {
@@ -74,7 +76,7 @@
 .loginPrompt {
     margin-top: 1rem;
     text-align: center;
-    color: #1e3a8a;
+    color: #1e3a8a; /* dark blue */
     font-size: 0.95rem;
 }
 
@@ -82,7 +84,7 @@
     display: inline-block;
     margin-top: 0.25rem;
     background-color: transparent;
-    color: #2563eb;
+    color: #2563eb; /* medium blue */
     font-weight: 600;
     text-decoration: underline;
     border: none;
@@ -94,14 +96,14 @@
     margin-top: 1rem;
     text-align: center;
     font-size: 0.95rem;
-    color: #1e3a8a;
+    color: #1e3a8a; /* dark blue */
 }
 
 .loginRedirect a {
     display: block;
     margin-top: 0.25rem;
     font-weight: 600;
-    color: #1d4ed8;
+    color: #1d4ed8; /* medium blue */
     text-decoration: none;
 }
 

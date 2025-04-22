@@ -37,6 +37,7 @@ function ManageFriendsTab() {
         fetchRequests();
     }, [userId]);
 
+    // remove a friend
     const handleRemove = async (friendId: number) => {
         try {
             await axios.post("http://localhost:5001/friends/remove", {
@@ -49,6 +50,7 @@ function ManageFriendsTab() {
         }
     };
 
+    // accept a friend request
     const handleAccept = async (friendId: number) => {
         try {
             await axios.post("http://localhost:5001/friends/accept", {

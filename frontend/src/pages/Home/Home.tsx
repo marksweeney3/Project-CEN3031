@@ -18,6 +18,7 @@ function Home() {
         navigate("/login");
     };
 
+    // allows user to choose which page they want to go to
     return (
         <div className={styles.wrapper}>
             <button className={styles.logoutButton} onClick={handleLogout}>

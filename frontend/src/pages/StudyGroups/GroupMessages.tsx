@@ -49,6 +49,7 @@ function GroupMessages({ groupId }: Props) {
         }
     };
 
+    // fix the incorrect time stamp issue
     const formatLocalTime = (utcTimestamp: string) => {
         try {
             const utcDate = new Date(utcTimestamp);
@@ -65,6 +66,7 @@ function GroupMessages({ groupId }: Props) {
         }
     };
 
+    // users can text messages to group with a hide/show messages toggle
     return (
         <div className={styles.wrapper}>
             <button

@@ -8,6 +8,7 @@ function StudySessions() {
     const [activeTab, setActiveTab] = useState<"my" | "create">("my");
     const navigate = useNavigate();
 
+    // main study sessions page with tabs they can navigate between
     return (
         <div className={styles.container}>
             <div className={styles.tabBar}>

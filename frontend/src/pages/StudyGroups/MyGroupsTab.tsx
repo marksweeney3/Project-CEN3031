@@ -40,6 +40,7 @@ function MyGroupsTab() {
         }
     };
 
+    // user can see any study groups they are in
     return (
         <div>
             <h2 className={styles.sectionTitle}>My Study Groups</h2>

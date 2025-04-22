@@ -30,6 +30,7 @@ function Login() {
         }
     };
 
+    // allows an already registered user to login
     return (
         <div className={styles.container}>
             <form onSubmit={handleSubmit} className={styles.form}>

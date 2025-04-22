@@ -9,6 +9,7 @@ function Friends() {
     const [activeTab, setActiveTab] = useState<"my" | "search" | "manage">("my");
     const navigate = useNavigate();
 
+    // Let the user switch between the tabs
     return (
         <div className={styles.container}>
             <h1 className={styles.title}>Friends</h1>

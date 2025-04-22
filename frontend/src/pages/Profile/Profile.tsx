@@ -73,6 +73,7 @@ function Profile() {
         }
     };
 
+    // user can't update their name or email, but can edit the other information
     return (
         <div className={styles.container}>
             <form className={styles.form} onSubmit={(e) => e.preventDefault()}>
